@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Layout from "../components/layout/layout";
+import Curation from "../components/curation/curation";
 import { readdirSync } from "fs";
 
 interface Props {
@@ -7,23 +6,10 @@ interface Props {
 }
 
 export default function Home({ postLinks }: Props) {
-  console.log(postLinks);
   return (
-    <Layout>
-      <main className="main--content">
-        <ul>
-          {postLinks.map((link, key) => {
-            return (
-              <li key={key}>
-                <Link href={`blog/${link}`}>
-                  <a>{link}</a>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </main>
-    </Layout>
+    <div>
+      <Curation postLinks={postLinks}></Curation>
+    </div>
   );
 }
 

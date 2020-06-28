@@ -26,7 +26,6 @@ const createMarkup = (htmlString: string) => {
 const Post = ({ title, description, content }: Props) => {
   const parsedContent = createMarkup(content);
 
-  console.log(typeof parsedContent);
   return (
     <>
       <Head>
