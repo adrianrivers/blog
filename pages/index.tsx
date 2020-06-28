@@ -1,15 +1,39 @@
-import DocumentHead from "../components/head/document-head";
+import Link from "next/link";
 import Layout from "../components/layout/layout";
-import Header from "../components/header/header";
-import Footer from "../components/footer/footer";
+import { readdirSync } from "fs";
 
-export default function Home() {
+interface Props {
+  postLinks: [];
+}
+
+export default function Home({ postLinks }: Props) {
+  console.log(postLinks);
   return (
     <Layout>
-      <DocumentHead></DocumentHead>
-      <Header></Header>
-      <main className="main--content">Some content</main>
-      <Footer></Footer>
+      <main className="main--content">
+        <ul>
+          {postLinks.map((link, key) => {
+            return (
+              <li key={key}>
+                <Link href={`blog/${link}`}>
+                  <a>{link}</a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </main>
     </Layout>
   );
 }
+
+export const getStaticProps = async (): Promise<{}> => {
+  const files = readdirSync("posts");
+  const postLinks = files.map((fileName) => `${fileName.replace(".md", "")}`);
+
+  return {
+    props: {
+      postLinks,
+    },
+  };
+};
