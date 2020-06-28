@@ -1,7 +1,8 @@
+import * as React from "react";
 import Link from "next/link";
 
 interface Props {
-  postLinks: [];
+  postLinks: Array<string>;
 }
 
 const Curation = ({ postLinks }: Props) => (

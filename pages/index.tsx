@@ -2,7 +2,7 @@ import Curation from "../components/curation/curation";
 import { readdirSync } from "fs";
 
 interface Props {
-  postLinks: [];
+  postLinks: Array<string>;
 }
 
 export default function Home({ postLinks }: Props) {
@@ -16,7 +16,6 @@ export default function Home({ postLinks }: Props) {
 export const getStaticProps = async (): Promise<{}> => {
   const files = readdirSync("posts");
   const postLinks = files.map((fileName) => `${fileName.replace(".md", "")}`);
-
   return {
     props: {
       postLinks,

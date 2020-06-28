@@ -1,3 +1,4 @@
+import * as React from "react";
 import { NavLink, Flex } from "theme-ui";
 
 const Header = () => (
