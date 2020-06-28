@@ -1,4 +1,3 @@
-import React from "react";
 import Head from "next/head";
 import marked from "marked";
 import fs, { readdirSync } from "fs";
@@ -33,10 +32,15 @@ const Post = ({ title, description, content }: Props) => {
         <meta name="author" content="Adrian Rivers" />
         <meta name="description" content={description} />
       </Head>
-      <div>
-        <h1>{title}</h1>
-        <h4>{description}</h4>
-        <div dangerouslySetInnerHTML={parsedContent} />
+      <div className="post">
+        <div className="post--head">
+          <h1>{title}</h1>
+          <h4>{description}</h4>
+        </div>
+        <div
+          className="post--content"
+          dangerouslySetInnerHTML={parsedContent}
+        />
       </div>
     </>
   );

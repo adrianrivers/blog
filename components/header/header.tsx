@@ -1,19 +1,15 @@
-import Link from "next/link";
+import { NavLink, Flex } from "theme-ui";
 
 const Header = () => (
   <header>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </li>
-    </ul>
+    <Flex as="nav">
+      <NavLink href="/" p={2}>
+        Home
+      </NavLink>
+      <NavLink href="/about" p={2}>
+        About
+      </NavLink>
+    </Flex>
   </header>
 );
 

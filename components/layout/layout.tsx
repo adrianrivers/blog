@@ -1,16 +1,17 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
+import { Flex } from "theme-ui";
 import { Props } from "react";
 
 const Layout = (props: Props<React.ReactChildren>) => (
-  <div
+  <Flex
     className="layout"
     sx={{
       maxWidth: 1024,
+      flexDirection: "column",
+      margin: "0 auto",
     }}
   >
     {props.children}
-  </div>
+  </Flex>
 );
 
 export default Layout;
